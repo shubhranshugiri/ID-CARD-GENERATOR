@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student ID Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 class="header">ID CARD GENERATOR</h1>
+    <div class="container" id="container">
+        <div class="template" id="template">
+            <p>Select Templates:</p>
+            <a onclick="changeTemplate(1)"><img src="images/template1.png" alt="#"></a>
+            <a onclick="changeTemplate(2)"><img src="images/template2.png" alt="#"></a>
+            <a onclick="changeTemplate(3)"><img src="images/template3.png" alt="#"></a>
+            <a onclick="changeTemplate(4)"><img src="images/template4.png" alt="#"></a>
+            <a onclick="changeTemplate(5)"><img src="images/template5.png" alt="#"></a>
+        </div>
+        <div class="left-panel">
+            <h2>Enter Student Details</h2>
+            <form id="idCardForm">
+                <div class="form-group">
+                    <label for="name">Enter Full Name:</label>
+                    <input type="text" id="name" required placeholder="Enter Name Here">
+                </div>
+                <div class="form-group" style="display:flex ; ">
+                    <label for="namePositionTopToBottom">Position Top to Bottom:</label>
+                    <input type="range" id="namePositionTopToBottom" min="0" max="100" value="50">
+                    <label for="namePositionLeftToRight">Position Left To Right:</label>
+                    <input type="range" id="namePositionLeftToRight" min="0" max="100" value="50">
+                </div>
+                <div class="form-group">
+                    <label for="collegeName">Enter College Name:</label>
+                    <input type="text" id="collegeName" required placeholder="Enter College Name Here">
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Enter Student ID:</label>
+                    <input type="text" id="studentId" required placeholder="Enter Student Id">
+                </div>
+                <div class="form-group" style="display:flex ; ">
+                    <label for="idPositionTopToBottom">Position Top To Bottom:</label>
+                    <input type="range" id="idPositionTopToBottom" min="0" max="100" value="50">
+                    <label for="idPositionLeftToRight">Position Left To Right:</label>
+                    <input type="range" id="idPositionLeftToRight" min="0" max="100" value="50">
+                </div>
+                <div class="form-group">
+                    <label for="course">Enter course</label>
+                    <input type="text" id="course" required  placeholder="Enter Course Here">
+                </div>
+                <div class="form-group" style="display:flex ; ">
+                    <label for="coursePositionTopToBottom">Position Top To Bottom:</label>
+                    <input type="range" id="coursePositionTopToBottom" min="0" max="100" value="50">
+                    <label for="coursePositionLeftToRight">Position Left To Right:</label>
+                    <input type="range" id="coursePositionLeftToRight" min="0" max="100" value="50">
+                </div>
+                <div class="form-group" >
+                    <label for="photo">Select Student's Photo:</label>
+                    <input type="file" id="photo" accept="image/*" required>
+                    <p id="photoName"></p>
+                </div>
+                <div class="form-group">
+                    <label for="text-color">Select Text Color:</label>
+                    <input type="color" id="text-color" name="text-color" value="#000000">
+                </div>
+                <div class="form-group">
+                    <label for="font-family">Select Font Family:</label>
+                    <select id="font-family" name="font-family">
+                        <option value="Arial">Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Palatino">Palatino</option>
+                        <option value="Arial Black">Arial Black</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                    </select>
+                </div>
+                
+                <button type="submit" onclick="previewId()" id="PreviewCard">Preview Card</button>
+            </form>
+            
+        </div>
+        <button onclick="generatePDF()" id="generateCard">Generate Card</button>
+        
+        <div class="right-panel">
+            <div class="id-card-container" id="idCardContent">
+                <div id="college-name"></div>
+                <div class="row-2">
+                    <div class="photo-container">
+                        <span class="photo" id="idCardPhoto"></span>
+                    </div>
+                    <div class="student-info">
+                        <ul>
+                            <li>Identity Card</li>
+                            <li id="idCardName" style="position: relative;"></li>
+                            <li id="idCardStudentId" style="position: relative;"></li>
+                            <li id="idCardCourse" style="position: relative;"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+      
+</body>
+
+</html>
